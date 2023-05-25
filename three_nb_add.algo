@@ -1,0 +1,20 @@
+ALGORITHM three_nb_add
+VAR santence = "hello how are you.";
+BEGIN
+ nbchar = 0;
+ nbword=0;
+ nbvoil=0;
+
+FOR i FROM 0 TO santence.length  STEP 1  DO
+  
+IF(santence[i] !== " " && santence[i] !== ".")THEN
+	nbchar++;
+IF(santence[i] === " " || santence[i] == ".")THEN
+nbword++;
+IF(['a','e','i','o','y','u']==santence[i])
+nbvoil++;
+
+END_FOR
+
+END
+

@@ -1,0 +1,43 @@
+ALGORITHM three_nb_add
+VAR N : INTEGER
+VAR M : INTEGER 
+VAR set1 : ARRAY_OF INTEGER[N]
+VAR set2[M] : ARRAY_OF INTEGER[M]
+
+BEGIN
+FUNCTION sumOfDistinctElements (set1, set2) : ARRAY_OF INTEGER[N+M];
+  VAR subSet ARRAY_OF INTEGER[N+M]
+  VAR i,j,k : INTEGER
+  BEGIN
+    i := 1
+    j := 1
+    K := 1
+    WHILE (i<=N) DO
+      WHILE (j<=M && set1[i]!=set2[j]) DO
+        j:= j + 1
+      END_WHILE
+      if (j>M) THEN
+      subSet[k] <- set1[i]
+      k:= K+1
+      END_IF
+      j:= 1
+      i:= i + 1
+    END_WHILE 
+    i := 1
+    j := 1
+    WHILE (i<=M) DO
+      WHILE (j<=N && set2[i]!=set1[j]) DO
+        j:= j + 1
+      END_WHILE
+      if (j>N) THEN
+      subSet[k]:= set2[i]
+      k:= K+1
+      END_IF
+      j:= 1
+      i:= i + 1
+    END_WHILE 
+    
+    RETURN subSet ;
+  END
+sumOfDistinctElements(set1,set2)
+END
